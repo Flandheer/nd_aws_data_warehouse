@@ -1,0 +1,18 @@
+
+============ Redshift Cluster ============
+RedshiftClusterEndPoint=dwhcluster.c1ac9l4lurim.us-west-2.redshift.amazonaws.com
+RedshiftIdentifier=dwhcluster
+RedshiftUser=dwhuser
+RedshiftIAMRole=arn:aws:iam::864662948199:role/dwhRole
+========== Redshift database ==========
+
+ Fact table songplays: 1144
+ Dimension table users: 107
+ Dimension table songs: 14896
+ Dimension table artists: 10025
+ Dimension table times: 8023
+========== Test results ==========
+
+ Goal: Load data into the Redshift cluster and store it in the database
+ Result: 7 out of 7 tables loaded 
+ Test passed: True
