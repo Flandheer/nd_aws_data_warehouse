@@ -125,7 +125,7 @@ def main():
 
     print(redshift_cluster)
 
-    # The cluster pops are stored in the dwh.cfg file. Improve by retrieving the props from the Redshift cluster
+    # The retrieve the cluster properties
     props = [redshift_cluster.HOST,
              redshift_cluster.DB_NAME,
              redshift_cluster.DB_USER,

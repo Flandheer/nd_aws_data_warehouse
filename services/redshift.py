@@ -20,9 +20,9 @@ class RedshiftCluster:
         self.KEY = config.get('AWS','KEY')
         self.SECRET = config.get('AWS','SECRET')
 
-        self.CLUSTER_TYPE = config.get("CLUSTER", "CLUSTER_TYPE")
-        self.NUM_NODES = int(config.get("CLUSTER", "NUM_NODES"))
-        self.NODE_TYPE = config.get("CLUSTER", "NODE_TYPE")
+        self.CLUSTER_TYPE = config.get("CLUSTERSETUP", "CLUSTER_TYPE")
+        self.NUM_NODES = int(config.get("CLUSTERSETUP", "NUM_NODES"))
+        self.NODE_TYPE = config.get("CLUSTERSETUP", "NODE_TYPE")
 
         self.HOST = config.get("CLUSTER", "HOST")
         self.DB_IDENTIFIER = config.get("CLUSTER", "DB_IDENTIFIER")

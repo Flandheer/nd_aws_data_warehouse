@@ -21,69 +21,69 @@ time_table_drop = drop_table_queries + "times"
 # CREATE TABLES
 
 staging_events_table_create= "CREATE TABLE IF NOT EXISTS staging_events (" \
-                             "artist VARCHAR(1000)," \
-                             "auth VARCHAR(1000)," \
-                             "firstName VARCHAR(1000)," \
-                             "gender VARCHAR(1000)," \
+                             "artist VARCHAR(100)," \
+                             "auth VARCHAR(25)," \
+                             "firstName VARCHAR(25)," \
+                             "gender CHAR(1)," \
                              "itemInSession bigint  ," \
-                             "lastName VARCHAR(1000)," \
+                             "lastName VARCHAR(25)," \
                              "length FLOAT," \
-                             "level VARCHAR(1000)," \
-                             "location VARCHAR(1000)," \
-                             "method VARCHAR(1000)," \
-                             "page VARCHAR(1000)," \
+                             "level VARCHAR(10)," \
+                             "location VARCHAR(50)," \
+                             "method VARCHAR(25)," \
+                             "page VARCHAR(10)," \
                              "registration FLOAT," \
                              "sessionId bigint ," \
-                             "song VARCHAR(1000)," \
+                             "song VARCHAR(100)," \
                              "status bigint ," \
                              "ts bigint ," \
-                             "userAgent VARCHAR(1000)," \
-                             "userId VARCHAR(1000))"
+                             "userAgent VARCHAR(255)," \
+                             "userId VARCHAR(10))"
 
 staging_songs_table_create = "CREATE TABLE IF NOT EXISTS staging_songs (" \
                              "num_songs bigint  NOT NULL," \
-                             "artist_id VARCHAR(1000)," \
+                             "artist_id VARCHAR(18)," \
                              "artist_latitude FLOAT," \
                              "artist_longitude FLOAT," \
-                             "artist_location VARCHAR(1000)," \
-                             "artist_name VARCHAR(1000)," \
-                             "song_id VARCHAR(1000) NOT NULL," \
-                             "title VARCHAR(1000)," \
+                             "artist_location VARCHAR(50)," \
+                             "artist_name VARCHAR(100)," \
+                             "song_id VARCHAR(18) NOT NULL," \
+                             "title VARCHAR(100)," \
                              "duration FLOAT," \
                              "year bigint )"
 
 songplay_table_create = "CREATE TABLE IF NOT EXISTS songplays (" \
                              "songplay_id INT IDENTITY(0,1) PRIMARY KEY ," \
                              "start_time bigint  NOT NULL REFERENCES times(start_time)," \
-                             "user_id VARCHAR(1000) NOT NULL REFERENCES users(user_id)," \
-                             "level VARCHAR(1000)," \
-                             "song_id VARCHAR(1000) NOT NULL REFERENCES songs(song_id)," \
-                             "artist_id VARCHAR(1000) NOT NULL REFERENCES artists(artist_id)," \
+                             "user_id VARCHAR(10) NOT NULL REFERENCES users(user_id)," \
+                             "level VARCHAR(10)," \
+                             "song_id VARCHAR(18) NOT NULL REFERENCES songs(song_id)," \
+                             "artist_id VARCHAR(18) NOT NULL REFERENCES artists(artist_id)," \
                              "session_id INTEGER NOT NULL," \
-                             "location VARCHAR(1000)," \
-                             "user_agent VARCHAR(1000))"
+                             "location VARCHAR(50)," \
+                             "user_agent VARCHAR(255))"
 
 user_table_create = """
                     CREATE TABLE IF NOT EXISTS users (
-                        user_id VARCHAR(1000)  PRIMARY KEY,
-                        first_name VARCHAR(1000),
-                        last_name VARCHAR(1000),
-                        gender VARCHAR(1000),
-                        level VARCHAR(1000)
+                        user_id VARCHAR(10)  PRIMARY KEY,
+                        first_name VARCHAR(50),
+                        last_name VARCHAR(50),
+                        gender CHAR(1),
+                        level VARCHAR(10)
                     );
                     """
 
 song_table_create = "CREATE TABLE IF NOT EXISTS songs (" \
-                             "song_id VARCHAR(1000) NOT NULL PRIMARY KEY," \
-                             "title VARCHAR(1000)," \
-                             "artist_id VARCHAR(1000) NOT NULL," \
+                             "song_id VARCHAR(18) NOT NULL PRIMARY KEY," \
+                             "title VARCHAR(100)," \
+                             "artist_id VARCHAR(18) NOT NULL," \
                              "year INTEGER," \
                              "duration FLOAT)"
 
 artist_table_create = "CREATE TABLE IF NOT EXISTS artists (" \
-                             "artist_id VARCHAR(1000) PRIMARY KEY," \
-                             "name VARCHAR(1000)," \
-                             "location VARCHAR(1000)," \
+                             "artist_id VARCHAR(18) PRIMARY KEY," \
+                             "name VARCHAR(100)," \
+                             "location VARCHAR(50)," \
                              "latitude FLOAT," \
                              "longitude FLOAT)"
 
